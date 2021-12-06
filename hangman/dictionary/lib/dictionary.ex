@@ -1,18 +1,41 @@
 defmodule Dictionary do
-  @moduledoc """
-  Documentation for `Dictionary`.
-  """
+  def word_list do
+    words = File.read!("assets/words.txt")
 
-  @doc """
-  Hello world.
+    String.split(words, ~r/\n/, trim: true)
+  end
 
-  ## Examples
+  def random_word do
+    Enum.random(word_list())
+  end
 
-      iex> Dictionary.hello()
-      :world
-
-  """
   def hello do
-    :world
+    IO.puts "Hello world!!"
   end
 end
+
+# Dictionary.hello
+
+# r Dictionary
+
+# Dictionary.hello
+
+# Dictionary.word_list
+
+# Dictionary.random_word
+
+# memorable_quote = "had we but world enough, and time"
+
+# String.split(memorable_quote, ",", trim: true)
+
+# letters = String.split(memorable_quote, "")
+
+# String.codepoints(memorable_quote)
+
+# String.to_charlist(memorable_quote)
+
+# String.to_charlist("abc");
+
+# String.reverse(memorable_quote)
+
+# String.myers_difference(memorable_quote, "had we but bacon enough, and treacle")
