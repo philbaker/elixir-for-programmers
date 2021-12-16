@@ -15,7 +15,7 @@ defmodule Hangman.Impl.Game do
   )
 
   def new_game do
-    %Hangman.Impl.Game{
+    %__MODULE__{
       letters: Dictionary.random_word |> String.codepoints
     }
   end
