@@ -45,12 +45,30 @@ defmodule ImplGameTest do
     assert MapSet.equal?(game.used, MapSet.new(["x", "y"]))
   end
 
-  test "can handle a sequence of move" do
+  test "we recognize a letter in a word" do
+    game = Game.new_game("wombat")
+    { _game, tally } = Game.make_move(game, "m")
+    assert tally.game_state == :good_guess
+    { _game, tally } = Game.make_move(game, "t")
+    assert tally.game_state == :good_guess
+  end
+
+  test "we recognize a letter not in a word" do
+    game = Game.new_game("wombat")
+    { _game, tally } = Game.make_move(game, "x")
+    assert tally.game_state == :bad_guess
+    { _game, tally } = Game.make_move(game, "t")
+    assert tally.game_state == :good_guess
+    { _game, tally } = Game.make_move(game, "y")
+    assert tally.game_state == :bad_guess
+  end
+
+  test "can handle a sequence of moves" do
     [
-      ["a", :bad_guess, 6, ["_", "_", "_", "_", "_"], ["a"]],
+      # guess | state | turns | letters | used
       ["a", :bad_guess, 6, ["_", "_", "_", "_", "_"], ["a"]],
       ["e", :good_guess, 6, ["_", "e", "_", "_", "_"], ["a", "e"]],
-      ["x", :bad_guess, 6, ["_", "e", "_", "_", "_"], ["a", "e", "x"]]
+      ["x", :bad_guess, 5, ["_", "e", "_", "_", "_"], ["a", "e", "x"]],
     ]
     |> test_sequence_of_moves()
   end
