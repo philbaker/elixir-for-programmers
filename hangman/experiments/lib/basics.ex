@@ -1,5 +1,5 @@
 defmodule Basics do
-  @word_list "assets/words.txt"
+  @word_list "../dictionary/assets/words.txt"
   |> File.read!()
   |> String.split(~r/\n/, trim: true)
 
