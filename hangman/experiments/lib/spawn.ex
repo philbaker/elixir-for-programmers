@@ -13,4 +13,4 @@ spawn fn -> IO.puts("Hello") end
 # => Hello
 # => #PID<0.200.0>
 
-spawn fn -> Process.sleep(1000); IO.puts("Hello") end 
+# spawn fn -> Process.sleep(1000); IO.puts("Hello") end 
