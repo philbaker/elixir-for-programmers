@@ -14,14 +14,14 @@ defmodule Procs do
 end
 
 # pid = spawn Procs, :hello, [ 0 ]
-send pid, "dave"
+# send pid, "dave"
 # send pid, "lola"
 # send pid, "cloira"
 # send pid, {:add, 99}
 # send pid, { :quit }
 # Process.alive? pid
-send pid, { :crash, :kaboom }
+# send pid, { :crash, :kaboom }
 # Process.alive? pid
 
-pid = spawn_link Procs, :hello, [ 0 ]
-send pid, { :crash, :normal }
+# pid = spawn_link Procs, :hello, [ 0 ]
+# send pid, { :crash, :normal }
