@@ -19,6 +19,7 @@ defmodule B2Web.Router do
 
     get "/", HangmanController, :index
     post "/", HangmanController, :new
+    put "/", HangmanController, :update
   end
 
   # Other scopes may use custom stacks.
